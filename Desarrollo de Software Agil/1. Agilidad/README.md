@@ -1,1 +1,1 @@
-# Gestor de Almacenamiento y Distribución de Tarjetas Bancarias
+# Aplicación Web para el Almacenamiento y Distribución de Tarjetas Bancarias
