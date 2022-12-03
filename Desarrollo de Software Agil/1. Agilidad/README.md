@@ -1,1 +1,1 @@
-# Aplicación Web para el Almacenamiento y Distribución de Tarjetas Bancarias
+# Aplicación Web para Gestionar el Almacenamiento y Distribución de Tarjetas Bancarias
