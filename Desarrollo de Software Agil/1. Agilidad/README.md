@@ -13,3 +13,4 @@ Crear una aplicación web que permita gestionar el almacenamiento y distribució
 * Generar distribución de tarjetas
 * Generar guias en formato pdf
 * Actualizar inventario
+
