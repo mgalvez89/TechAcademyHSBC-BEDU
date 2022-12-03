@@ -1,1 +1,1 @@
-# Tech Academy HSBC-BEDU
+# Academy of Technology together HSBC & BEDU.
