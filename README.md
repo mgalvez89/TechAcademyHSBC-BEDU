@@ -1,1 +1,1 @@
-# TechAcademyHSBC-BEDU
+# Tech Academy HSBC-BEDU
