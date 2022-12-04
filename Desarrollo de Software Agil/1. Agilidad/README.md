@@ -50,8 +50,8 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 
 **¿Qué acciones concretas puedo implementar para evitar desperdicios en mis flujos de trabajo?**
 > Reducir el tiempo de las reuniones entre el equipo.
-  Planear las reuniones con los usuarios finales para realizar las pruebas y así evitar los tiempos de espera.
-  Identificar la ubicación de los departamentos que integran la compañia para evitar traslados en vano sin dar con el departamento.
+>  Planear las reuniones con los usuarios finales para realizar las pruebas y así evitar los tiempos de espera.
+> Identificar la ubicación de los departamentos que integran la compañia para evitar traslados en vano sin dar con el departamento.
 
 ## Kanban
 
