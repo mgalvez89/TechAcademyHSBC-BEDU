@@ -23,26 +23,16 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 
 | Práctica ágil que usaré | Justificación |
 | ------------- | ------------- |
-| | Porque podré construir el tablero facilmente con las columnas que indicaran el estado de mis tareas: "Por hacer", "En proceso y "Hecho" |
+| | Porque podré construir el tablero facilmente con las columnas que indicaran el estado de mis tareas: "Por hacer", "En proceso y "Hecho". |
 | | Porque me permitirá visualizar facilmente el estado de mis tareas. |
 | KANBAN | Porque me permitirá mejorar el flujo de mi trabajo y libre de estrés. |
 | | Porque mi equipo de trabajo podra identifcar fácilmente sus tareas en las que esta trabajando y evitar así la confusión de tareas entre los miembros del equipo. |
-| | Porque me permitirá sentirme satisfecho con mi desempeño por haber concluido tareas concretas |
-
-
-
-
-
-  
-
-             
-             
-
-
+| | Porque me permitirá sentirme satisfecho con mi desempeño por haber concluido tareas concretas al final del día. |
 
 ## Agilidad
 
 **¿Los principios que hay en la cultura de mi empresa o equipo son los del manifiesto ágil?**
+> En mi equipo de desarrollo no existen todos los principios del manifiesto ágil ya que durante mi experiencia en el desarrollo de aplicacionees dentro del equipo hace falta el principio de responder al cambio y eso nos lleva realizar segundas o terceras faces de los proyectos. Por otra parte la comunicación entre mi equipo es muy buena y eso nos da la oportunidad de implementar los principios del manifiesto ágil.
 
 ## 5S
 
