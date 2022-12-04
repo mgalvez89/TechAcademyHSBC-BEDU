@@ -38,13 +38,13 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 ## 5S
 
 **¿Cómo puedo aplicar las 5S en un proceso que gestiono actualmente en mi trabajo?**
-> 1. Seiri / Organizar y despejar: En mi lugar de trabajo existen impresoras, cables y equipo de computo que no son utilizados por lo cual puedo aplicar Seiri. Tener a la mano lo indispensable para ejecutar mi trabajo como por ejemplo: equipo de computo personal, auriculares y microfono para reuniones, cargadores electronicos, agenda, libreta y boligrafo, pintarron y plumones.
->  2. Seiton / Ordenar: En mi lugar de trabajo existen pantallas y pintarrones para presentar los proyectos, y estas se encuentran ubicadas a un costada de cada mesa de trabajo, considero que la ubicación es la correcta puesto que tenemos acceso rapido e ellos.
->  3. Seiso / Limpiar: En mi lugar de trabajo siempre procuro limpiar al comienzo de cada semana mis herramientas de trabajo por ejemplo mi equipo de computo, telefono, auriculares.
+> 1. **Seiri / Organizar y despejar**: En mi lugar de trabajo existen impresoras, cables y equipo de computo que no son utilizados por lo cual puedo aplicar Seiri. Tener a la mano lo indispensable para ejecutar mi trabajo como por ejemplo: equipo de computo personal, auriculares y microfono para reuniones, cargadores electronicos, agenda, libreta y boligrafo, pintarron y plumones.
+>  2. **Seiton / Ordenar**: En mi lugar de trabajo existen pantallas y pintarrones para presentar los proyectos, y estas se encuentran ubicadas a un costada de cada mesa de trabajo, considero que la ubicación es la correcta puesto que tenemos acceso rapido e ellos.
+>  3. **Seiso / Limpiar**: En mi lugar de trabajo siempre procuro limpiar al comienzo de cada semana mis herramientas de trabajo por ejemplo mi equipo de computo, telefono, auriculares.
   Tomar mis alimentos en lugares destinados para ello y asi evitar la suciedad en mi lugar de trabajo. 
   El departamento junto con el moviliario son aseados por el personal de limpieza de la compañia.
->  4. Seiketsu / Controles visuales: Evitar la reaparición del desorden y la suciedad. Para ello, resulta esencial la imposición de reglas y procedimientos entre mis compañeros de trabajo.
->  5. Shitsuke / Disciplina y Hábito: Ser constante con el metodo de las 5s, respetando los valores y politicas de la empresa y aplicar proceso de mejora continua dentro de la organización.
+>  4. **Seiketsu / Controles visuales**: Evitar la reaparición del desorden y la suciedad. Para ello, resulta esencial la imposición de reglas y procedimientos entre mis compañeros de trabajo.
+>  5. **Shitsuke / Disciplina y Hábito**: Ser constante con el metodo de las 5s, respetando los valores y politicas de la empresa y aplicar proceso de mejora continua dentro de la organización.
 
 ## Lean
 
