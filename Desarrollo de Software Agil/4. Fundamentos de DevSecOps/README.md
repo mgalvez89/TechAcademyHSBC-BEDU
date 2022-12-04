@@ -1,8 +1,17 @@
 ## Fundamentos Docker
 
+### Alcances
+
+a. Tener última versión Docker en local		
+b. Identificar los comandos Docker básicos		
+c. Iniciar el servidor de aplicaciones
+d. Modificar la página de inicio del servidor de aplicaciones
+
+### Desarrollo
+
 1. Utiliza el repo de Apache
 
-https://hub.docker.com/_/httpd
+> https://hub.docker.com/_/httpd
 
 2. Ejecuta el comando para descargar la Imagen a tu local:
 
