@@ -1,6 +1,6 @@
 # Academy of Technology together HSBC & BEDU.
 
-### Alcances
+### Desarrollo
 
 * Código con al menos 8 pruebas unitarias.
 [TestNG](https://github.com/mgalvez89/TechAcademyHSBC-BEDU/tree/main/Desarrollo%20de%20Software%20Agil/3.%20Niveles%20de%20software%20testing/TestNG)
