@@ -18,3 +18,32 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 * **Generar guias en formato pdf**: La aplicación generará las guías en formato pdf del grupo de tarjetas a distribuir y el cual tendran el detalle de la entrega.
 
 
+## Gestionarlo con prácticas ágiles
+
+
+| Práctica ágil que usaré | Justificación |
+| ------------- | ------------- |
+|         | * Porque podré construir el tablero facilmente con las columnas que indicaran el estado de mis tareas: "Por hacer", "En proceso y "Hecho"
+ * Porque me permitirá visualizar facilmente el estado de mis tareas. 
+* Porque me permitirá mejorar el flujo de mi trabajo y libre de estrés.
+             * Porque mi equipo de trabajo podra identifcar fácilmente sus tareas en las que esta trabajando y evitar así la confusión de tareas entre los miembros del equipo. 
+             * Porque me permitirá sentirme satisfecho con mi desempeño por haber concluido tareas concretas|
+ 
+
+
+
+## Agilidad
+
+**¿Los principios que hay en la cultura de mi empresa o equipo son los del manifiesto ágil?**
+
+## 5S
+
+**¿Cómo puedo aplicar las 5S en un proceso que gestiono actualmente en mi trabajo?**
+
+## Lean
+
+**¿Qué acciones concretas puedo implementar para evitar desperdicios en mis flujos de trabajo?**
+
+## Kanban
+
+**¿Cómo puedo empezar a usar el tablero Kanban para eficientar los procesos de mi equipo de trabajo?**
