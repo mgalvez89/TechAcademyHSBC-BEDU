@@ -23,12 +23,20 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 
 | Práctica ágil que usaré | Justificación |
 | ------------- | ------------- |
-|         | * Porque podré construir el tablero facilmente con las columnas que indicaran el estado de mis tareas: "Por hacer", "En proceso y "Hecho"
- * Porque me permitirá visualizar facilmente el estado de mis tareas. 
-* Porque me permitirá mejorar el flujo de mi trabajo y libre de estrés.
-             * Porque mi equipo de trabajo podra identifcar fácilmente sus tareas en las que esta trabajando y evitar así la confusión de tareas entre los miembros del equipo. 
-             * Porque me permitirá sentirme satisfecho con mi desempeño por haber concluido tareas concretas|
- 
+| | Porque podré construir el tablero facilmente con las columnas que indicaran el estado de mis tareas: "Por hacer", "En proceso y "Hecho" |
+| | Porque me permitirá visualizar facilmente el estado de mis tareas. |
+| KANBAN | Porque me permitirá mejorar el flujo de mi trabajo y libre de estrés. |
+| | Porque mi equipo de trabajo podra identifcar fácilmente sus tareas en las que esta trabajando y evitar así la confusión de tareas entre los miembros del equipo. |
+| | Porque me permitirá sentirme satisfecho con mi desempeño por haber concluido tareas concretas |
+
+
+
+
+
+  
+
+             
+             
 
 
 
