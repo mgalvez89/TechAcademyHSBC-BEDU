@@ -7,8 +7,8 @@ El programa  Tech Academy HSBC en colaboración con BEDU, en donde los participa
 ## Módulos del curso
 
 ## **Módulo 1.**
-[Desarrollo de Software Ágil](https://github.com/mgalvez89/TechAcademyHSBC-BEDU/tree/main/Desarrollo%20de%20Software%20Agil)
 [DSA](https://user-images.githubusercontent.com/74322391/205520612-928c9a2f-b2ec-4d54-be45-debf0b626fc8.PNG)
+
 ## **Módulo 2.** 
 [Java Backend 1]()
 ## **Módulo 3.**  Fundamentos de Angular 
