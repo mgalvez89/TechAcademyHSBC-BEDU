@@ -2,10 +2,10 @@
 
 ### Alcances
 
-a. Tener última versión Docker en local		
-b. Identificar los comandos Docker básicos		
-c. Iniciar el servidor de aplicaciones
-d. Modificar la página de inicio del servidor de aplicaciones
+* Tener última versión Docker en local		
+* Identificar los comandos Docker básicos		
+* Iniciar el servidor de aplicaciones
+* Modificar la página de inicio del servidor de aplicaciones
 
 ### Desarrollo
 
