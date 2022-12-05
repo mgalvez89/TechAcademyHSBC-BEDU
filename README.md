@@ -12,7 +12,7 @@ El programa  Tech Academy HSBC en colaboración con BEDU, en donde los participa
 > ![DSA](https://user-images.githubusercontent.com/74322391/205520612-928c9a2f-b2ec-4d54-be45-debf0b626fc8.PNG)
 
 ## **Módulo 2.** 
->![m2](https://user-images.githubusercontent.com/74322391/205739554-c38559d3-91d4-483a-8b19-637f675ab56e.PNG)
+>![m2v2](https://user-images.githubusercontent.com/74322391/205740936-856b7585-c6f7-4e17-aa32-6f346471c871.PNG)
 
 ## **Módulo 3.**  Fundamentos de Angular 
 >![m3](https://user-images.githubusercontent.com/74322391/205739674-6751db9c-f34e-4ca2-b23d-8d52b0e31981.PNG)
