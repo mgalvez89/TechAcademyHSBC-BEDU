@@ -17,6 +17,9 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 
 * **Generar guias en formato pdf**: La aplicación generará las guías en formato pdf del grupo de tarjetas a distribuir y el cual tendran el detalle de la entrega.
 
+## Kanban
+
+![kanban](https://user-images.githubusercontent.com/74322391/205549952-01679161-05b4-40b0-9032-9f7526ee1e32.PNG)
 
 ## Gestionarlo con prácticas ágiles
 
