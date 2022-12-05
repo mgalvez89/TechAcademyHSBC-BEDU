@@ -19,7 +19,7 @@ Crear una aplicación web para gestionar el almacenamiento y distribución de ta
 
 ## Kanban
 
-![kanban](https://user-images.githubusercontent.com/74322391/205549952-01679161-05b4-40b0-9032-9f7526ee1e32.PNG)
+>![kanban](https://user-images.githubusercontent.com/74322391/205549952-01679161-05b4-40b0-9032-9f7526ee1e32.PNG)
 
 ## Gestionarlo con prácticas ágiles
 
