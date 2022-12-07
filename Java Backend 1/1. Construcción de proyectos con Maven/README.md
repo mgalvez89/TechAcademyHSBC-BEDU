@@ -56,7 +56,7 @@ Comando:
 % java -jar desktop/target/mygame-desktop-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
->![Test](https://user-images.githubusercontent.com/74322391/206140152-ede930b9-eee5-4eb0-a2f9-28d95461e1ea.PNG)
+>![test2](https://user-images.githubusercontent.com/74322391/206142459-05580aac-a666-497d-8321-7c1a7bc83ec4.PNG)
 
 
 
