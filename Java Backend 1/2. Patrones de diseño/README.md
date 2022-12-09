@@ -4,13 +4,12 @@
 * Construir la solución utilizando **Gradle y Maven**
 
 
-
-1. Archivo de configuración **pom.xml** para compilar y ejecutar el programa.
->**Archivos:** [HeladosPatternDecoradorMaven](https://github.com/mgalvez89/TechAcademyHSBC-BEDU/tree/main/Java%20Backend%201/2.%20Patrones%20de%20dise%C3%B1o/HeladosPatternDecoradorMaven)
-
+## Maven [HeladosPatternDecoradorMaven](https://github.com/mgalvez89/TechAcademyHSBC-BEDU/tree/main/Java%20Backend%201/2.%20Patrones%20de%20dise%C3%B1o/HeladosPatternDecoradorMaven)
+Archivo de configuración **pom.xml** para compilar y ejecutar el programa.
+ 
 >![pom](https://user-images.githubusercontent.com/74322391/206622115-f7fd54fb-e8d0-44e8-8b1c-9eb3fe0ed640.PNG)
 
-## Comandos:
+### Comandos:
 
 ```
 $ mvn clean package
@@ -20,12 +19,12 @@ $ java -jar HeladosPatternDecorador-1.0-SNAPSHOT.jar
 
 ![mvn](https://user-images.githubusercontent.com/74322391/206622693-1a5a4889-7cf3-4592-84ae-f54ccbeb0bc1.PNG)
 
-2. Archivo de configuración **build.gradle** para compilar y ejecutar el programa.
->**Archivos:** [HeladosPatternDecoradorGradle](https://github.com/mgalvez89/TechAcademyHSBC-BEDU/tree/main/Java%20Backend%201/2.%20Patrones%20de%20dise%C3%B1o/HeladosPatternDecoradorGradle)
+## Gradle [HeladosPatternDecoradorGradle](https://github.com/mgalvez89/TechAcademyHSBC-BEDU/tree/main/Java%20Backend%201/2.%20Patrones%20de%20dise%C3%B1o/HeladosPatternDecoradorGradle)
+Archivo de configuración **build.gradle** para compilar y ejecutar el programa.
 
 >![gradle](https://user-images.githubusercontent.com/74322391/206623471-739f1a93-769a-4ede-8083-c9bdd02f5a9a.PNG)
 
-## Comandos: 
+### Comandos: 
 
 ```
 $ gradle -q clean build
