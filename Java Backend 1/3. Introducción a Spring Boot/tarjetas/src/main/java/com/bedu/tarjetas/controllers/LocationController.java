@@ -66,6 +66,7 @@ public class LocationController {
     }
 
     @DeleteMapping("/{idLocation}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLocation(@PathVariable int idLocation){
         iLocationService.deleteLocation(idLocation);
     }

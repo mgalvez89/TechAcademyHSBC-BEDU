@@ -52,6 +52,7 @@ public class PackageController {
     }
 
     @PutMapping("/{idPackage}/{idNewLocation}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void changeLocation(@PathVariable int idPackage, @PathVariable int idNewLocation){
         iPackageService.changeLocation(idPackage, idNewLocation);
     }
@@ -62,6 +63,7 @@ public class PackageController {
     }
 
     @DeleteMapping("/{idPackage}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int idPackage){
         iPackageService.deletePackage(idPackage);
     }
