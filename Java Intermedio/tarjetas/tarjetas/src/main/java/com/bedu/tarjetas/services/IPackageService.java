@@ -4,6 +4,7 @@ import com.bedu.tarjetas.entities.Package;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IPackageService {
 
@@ -11,7 +12,7 @@ public interface IPackageService {
 
     void createPackages(MultipartFile file);
 
-    void changeLocation(long idPackage, long idNewLocation);
+    Map<String, String> changeLocation(long idPackage, long idNewLocation);
 
     List<Package> getAllPackages();
 

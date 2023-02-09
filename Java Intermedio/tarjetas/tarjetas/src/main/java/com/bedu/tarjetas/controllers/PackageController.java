@@ -53,9 +53,12 @@ public class PackageController {
     }
 
     @PutMapping("/{idPackage}/{idNewLocation}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void changeLocation(@PathVariable int idPackage, @PathVariable int idNewLocation){
-        iPackageService.changeLocation(idPackage, idNewLocation);
+    public ResponseEntity<?> changeLocation(@Valid @PathVariable int idPackage, @PathVariable int idNewLocation, HttpServletRequest request){
+        Map<String, String> errors = iPackageService.changeLocation(idPackage, idNewLocation);
+        if(errors.containsKey("message")){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(errors, HttpStatus.BAD_REQUEST.value(), request.getRequestURI()));
+        }
+        return ResponseEntity.created(URI.create("1")).build();
     }
 
     @GetMapping

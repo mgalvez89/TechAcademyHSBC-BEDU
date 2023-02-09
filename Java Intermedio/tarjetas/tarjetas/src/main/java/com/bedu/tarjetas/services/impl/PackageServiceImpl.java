@@ -19,9 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
@@ -100,7 +98,10 @@ public class PackageServiceImpl implements IPackageService {
 
     @Transactional
     @Override
-    public void changeLocation(long idPackage, long idNewLocation) {
+    public Map<String, String> changeLocation(long idPackage, long idNewLocation) {
+        Map<String, String> message = new HashMap<>();
+
+
         Optional<Package> optionalPackage = iPackageRepository.findById(idPackage);
         if(optionalPackage.isPresent()){
             Optional<Location> optionalLocation = iLocationRepository.getLocationById(optionalPackage.get().getNumberCards(), idNewLocation);
@@ -111,13 +112,16 @@ public class PackageServiceImpl implements IPackageService {
                 iLocationRepository.updateSpaceAdd(optionalPackage.get().getLocation().getIdLocation(), optionalPackage.get().getNumberCards());
                 logger.info("The Package was changed of location");
             }
-            else
+            else {
                 logger.error("The location is not available");
-
+                message.put("message", "La Ubicación con id: '" + idNewLocation + "' NO tiene esapacio disponible ó no existe en la Base de Datos, favor de verificar.");
+            }
         }
-        else
+        else {
             logger.error("The Package doesn't exist");
-
+            message.put("message", "El Paquete con id: '" + idPackage + "' NO existe en la Base de Datos, favor de verificar.");
+        }
+        return message;
     }
     @Override
     public List<Package> getAllPackages() {

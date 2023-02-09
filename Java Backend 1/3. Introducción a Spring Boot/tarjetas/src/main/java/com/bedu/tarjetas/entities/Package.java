@@ -25,4 +25,6 @@ public class Package {
     @ManyToOne
     private Location location;
 
+    @ManyToOne
+    private Request request;
 }
