@@ -20,6 +20,11 @@ public class IRequestService implements IResquestService {
 
     @Override
     public List<Request> getRequestStatus(String status) {
-        return iRequestRepository.getRequestByStatus(status);
+        return iRequestRepository.findByStatus(status);
+    }
+
+    @Override
+    public List<Request> getRequestType(String type) {
+        return iRequestRepository.findByTypeRequest(type);
     }
 }

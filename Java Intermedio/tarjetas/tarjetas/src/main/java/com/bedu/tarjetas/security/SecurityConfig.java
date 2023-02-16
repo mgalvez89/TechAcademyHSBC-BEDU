@@ -1,3 +1,4 @@
+/*
 package com.bedu.tarjetas.security;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        /*http.csrf()
+        */
+/*http.csrf()
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST,"/api/v1/packages/**")
@@ -43,7 +45,8 @@ public class SecurityConfig {
                 .httpBasic()
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);*/
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);*//*
+
           http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.DELETE)
@@ -64,6 +67,5 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
 }
+*/

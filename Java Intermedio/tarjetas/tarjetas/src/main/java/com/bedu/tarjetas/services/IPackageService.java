@@ -18,4 +18,6 @@ public interface IPackageService {
 
     void deletePackage(long idPackage);
 
+
+    List<Package> getPackagesByIdRequest(long idRequest);
 }

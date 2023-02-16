@@ -62,6 +62,7 @@ public class DeliveryServiceImpl implements IDeliveryService {
             {
                 String numberBranch = deliveryList.get(i).getBranch().getNumberBranch().trim();
                 String namePackage = deliveryList.get(i).getAPackage().getNamePackage().trim();
+
                 int auxBranch = Integer.parseInt(numberBranch);
 
                 if(auxBranch <= 0){
@@ -107,7 +108,6 @@ public class DeliveryServiceImpl implements IDeliveryService {
                 {
                     String numberBranch = deliveryList.get(i).getBranch().getNumberBranch().trim();
                     String namePackage = deliveryList.get(i).getAPackage().getNamePackage().trim();
-
 
                     Optional<Package> byNamePackage = iPackageRepository.findOneByNamePackage(namePackage);
 

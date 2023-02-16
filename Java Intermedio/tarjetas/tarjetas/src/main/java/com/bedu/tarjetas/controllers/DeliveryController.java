@@ -1,5 +1,6 @@
 package com.bedu.tarjetas.controllers;
 
+import com.bedu.tarjetas.entities.Request;
 import com.bedu.tarjetas.helper.ExcelHelper;
 import com.bedu.tarjetas.validations.ResponseMessage;
 import com.bedu.tarjetas.services.IDeliveryService;
@@ -16,6 +17,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/deliveries")
@@ -52,7 +54,7 @@ public class DeliveryController {
     }
 
     @PutMapping
-    public ResponseEntity<?> releaseRequest(@RequestParam String idRequest, HttpServletRequest request){
+    public ResponseEntity<?> releaseRequest(@RequestBody Request req, @RequestParam String idRequest, HttpServletRequest request){
         Long id = Long.parseLong(idRequest);
         Map<String,String> messages  = iDeliveryService.updateRequest(id);
         if(messages.containsKey("ok"))

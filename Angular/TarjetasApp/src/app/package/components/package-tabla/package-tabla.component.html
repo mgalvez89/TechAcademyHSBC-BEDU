@@ -1,0 +1,41 @@
+<div class="card border-secondary mb-3">    
+    <div class="card-header"><h5 class="card-title">Archivos Excel Cargados</h5></div>
+    <div class="card-body text-secondary">
+      <div class="my-2 text-left">
+        <!-- <button class="btn btn-rounded btn-secondary" type="button">
+          Almacenar Paquetes 
+        </button> -->
+      </div>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nombre del Archivo</th>
+            <th>Fecha de Almacenamiento</th>
+            <th>Acción</th>
+            <th>Estatus</th>          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of requests; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ request.fileName }}</td>
+            <td>{{ request.storageDate }}</td>
+            <td>
+                <!-- <button type="button" name="ver" class="btn btn-primary btn-sm">ver</button> -->
+                <a [routerLink]="['/storageRequest', request.idRequest]">Ver</a>
+            </td>
+            <td *ngIf="request.status == 'SITUATED'" class="p-2 mb-2 bg-info text-white">
+              {{ request.status }}
+            </td>   
+            <td *ngIf="request.status == 'FAIL'" class="p-2 mb-2 bg-danger text-white">
+              {{ request.status }}
+            </td>   
+
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
+  

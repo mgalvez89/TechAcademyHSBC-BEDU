@@ -142,7 +142,10 @@ public class PackageServiceImpl implements IPackageService {
             logger.error("The Package doesn't exist");
     }
 
-
+    @Override
+    public List<Package> getPackagesByIdRequest(long idRequest) {
+        return iPackageRepository.getPackagesByIdRequest( idRequest );
+    }
 
 
 }

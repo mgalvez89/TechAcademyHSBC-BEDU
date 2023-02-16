@@ -1,0 +1,13 @@
+<h2>Distribución</h2>
+<app-excel-file-upload
+    tipoUrl = "deliveries">
+</app-excel-file-upload>
+<hr>
+
+<div *ngIf="solicitudes.length > 0" class="row">
+    <div class="col">        
+        <app-delivery-table 
+            [requests]="solicitudes">
+        </app-delivery-table>
+    </div>    
+</div>

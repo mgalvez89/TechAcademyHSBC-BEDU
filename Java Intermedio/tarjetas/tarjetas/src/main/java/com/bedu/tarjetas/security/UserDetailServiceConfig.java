@@ -1,3 +1,4 @@
+/*
 package com.bedu.tarjetas.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -42,3 +43,4 @@ public class UserDetailServiceConfig {
         return new BCryptPasswordEncoder();
     }
 }
+*/

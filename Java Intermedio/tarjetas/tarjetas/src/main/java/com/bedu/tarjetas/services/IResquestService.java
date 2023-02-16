@@ -7,4 +7,6 @@ import java.util.List;
 public interface IResquestService {
 
     List<Request> getRequestStatus(String status);
+
+    List<Request> getRequestType(String type);
 }

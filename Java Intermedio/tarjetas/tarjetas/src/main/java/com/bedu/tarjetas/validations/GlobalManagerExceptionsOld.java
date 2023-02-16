@@ -66,7 +66,7 @@ public class GlobalManagerExceptionsOld {
 
 
 
-    //GENERAL
+    //PARA ERRORES EN GENERAL
     /*  @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ErrorMessage globalExceptionHandler(Exception ex, WebRequest request) {

@@ -32,7 +32,8 @@ public interface IRequestRepository extends JpaRepository<Request, Long> {
     @Override
     Optional<Request> findById(Long aLong);
 
-    @Query(value = "SELECT * FROM requests " +
-            "WHERE status = :status", nativeQuery = true)
-    List<Request> getRequestByStatus(String status);
+    List<Request> findByStatus(String status);
+
+
+    List<Request> findByTypeRequest(String type);
 }

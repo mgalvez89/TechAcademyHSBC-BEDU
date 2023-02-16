@@ -1,5 +1,6 @@
 package com.bedu.tarjetas.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -35,9 +36,11 @@ public class Package {
     @Column(name = "status")
     private String status;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne
     private Location location;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne
     private Request request;
 

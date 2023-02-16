@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/v1/packages")
 public class PackageController {
@@ -64,6 +65,11 @@ public class PackageController {
     @GetMapping
     public List<Package> allPackages(){
         return iPackageService.getAllPackages();
+    }
+
+    @GetMapping("/{idRequest}")
+    public List<Package> packagesByIdRequest(@PathVariable long idRequest){
+        return iPackageService.getPackagesByIdRequest( idRequest );
     }
 
 

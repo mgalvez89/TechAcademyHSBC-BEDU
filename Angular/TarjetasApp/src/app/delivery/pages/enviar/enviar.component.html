@@ -1,0 +1,46 @@
+<div class="my-2 text-center" (click)="enviar()">
+    <button class="btn btn-rounded btn-secondary" type="button">
+        Enviar
+    </button>
+</div>
+<div *ngIf="hayError"
+     class="alert alert-danger">
+     {{errorMessage}}
+</div>
+<div class="card border-secondary mb-3">
+    <div class="card-header"><h5 class="card-title">Paquetes con Sucursales destino.</h5></div>
+    <div class="card-body text-secondary">
+      <div class="my-2">
+        <button class="btn btn-rounded btn-secondary" (click)="print()" type="button">
+          Imprimir
+        </button>        
+      </div>
+
+
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nombre del Paquete</th>
+            <th>Nombre del Producto</th>
+            <th>Total de Tarjetas</th>
+            <th>Ubicación</th>
+            <th>Sucursal Destino</th>          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let package of packagesList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ package.namePackage }}</td>
+            <td>{{ package.nameProduct }}</td>
+            <td>{{ package.numberCards }}</td>
+            <td>{{ package.location.nameLocation }}</td>   
+            <td>              
+              <a [routerLink]="['/home', package.namePackage]">Ver Sucursal</a>
+            </td>                 
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
