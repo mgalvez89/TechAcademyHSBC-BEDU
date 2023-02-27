@@ -70,17 +70,21 @@ export class LoginComponent {
                private router: Router,
                private authService: AuthService ){}
 
-  login(){
-    console.log(this.miFormulario.value);
+  login(){    
     //Para extraer los datos del formulario
     const { email, password } = this.miFormulario.value;    
     this.authService.login( email, password )
-      .subscribe( ok => {        
-        if ( ok === true ){
+      .subscribe( user => {        
+        Swal.fire({            
+          icon: 'success',
+          title: '¡Bienvenid@ ' + user.userName + '!',
+          showConfirmButton: false,
+          timer: 2000
+        })        
+        if ( user.ok === true ){
           this.router.navigateByUrl('/home');
-        }else{
-          console.log(ok);
-          Swal.fire( 'Error', 'El correo o usuario no son validos', 'error' );
+        }else{          
+          Swal.fire( 'Error', 'El correo o usuario no son validos, favor de verificar', 'error' );
         }
       });
     this.router.navigateByUrl('/home'); 

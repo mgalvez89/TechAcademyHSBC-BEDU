@@ -17,7 +17,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/deliveries")

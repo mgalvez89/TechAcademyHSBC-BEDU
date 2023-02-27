@@ -20,8 +20,7 @@ export class CrearComponent {
   ngOnInit(): void {       
     this.locationService.listLocation()
     .subscribe( (listLocation) =>{              
-      this.ubicaciones = listLocation;   
-      console.log(this.ubicaciones);            
+      this.ubicaciones = listLocation;                   
     }, (error) =>{
       this.hayError = true;
       this.ubicaciones = [];

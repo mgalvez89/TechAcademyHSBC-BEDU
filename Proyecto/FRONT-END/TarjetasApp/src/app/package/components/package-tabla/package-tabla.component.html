@@ -12,7 +12,7 @@
             <th>No.</th>
             <th>Nombre del Archivo</th>
             <th>Fecha de Almacenamiento</th>
-            <th>Acción</th>
+            <th class="d-flex justify-content-center">Acción</th>
             <th>Estatus</th>          
           </tr>
         </thead>
@@ -21,14 +21,14 @@
             <td>{{ i + 1 }}</td>
             <td>{{ request.fileName }}</td>
             <td>{{ request.storageDate }}</td>
-            <td>
+            <td class="d-flex justify-content-center">
                 <!-- <button type="button" name="ver" class="btn btn-primary btn-sm">ver</button> -->
                 <a [routerLink]="['/storageRequest', request.idRequest]">Ver</a>
             </td>
-            <td *ngIf="request.status == 'SITUATED'" class="p-2 mb-2 bg-info text-white">
+            <td *ngIf="request.status == 'ALMACENADO'" class="p-2 mb-2 bg-success text-white">
               {{ request.status }}
             </td>   
-            <td *ngIf="request.status == 'FAIL'" class="p-2 mb-2 bg-danger text-white">
+            <td *ngIf="request.status == 'FALLIDO'" class="p-2 mb-2 bg-danger text-white">
               {{ request.status }}
             </td>   
 

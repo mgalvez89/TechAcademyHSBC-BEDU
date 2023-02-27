@@ -3,8 +3,9 @@ import { ExcelFileUploadService } from '../../services/excel-file-upload.service
 import { AlmacenarComponent } from '../../../package/pages/almacenar/almacenar.component';
 import { DistribuirComponent } from '../../../delivery/pages/distribuir/distribuir.component';
 import { CrearComponent } from 'src/app/location/pages/crear/crear.component';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { indicate } from './operators';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { indicate } from './operators';
 export class ExcelFileUploadComponent{
 
   // file!: File;
-  errorMessage = "";
+  // errorMessage = "";
   hayError: boolean = false;
   @Input() tipoUrl: string = '';
   file: File | null = null
@@ -50,6 +51,12 @@ export class ExcelFileUploadComponent{
       .pipe(indicate(this.loading$))
       .subscribe( 
         respOk => {
+          Swal.fire({            
+            icon: 'success',
+            title: '¡Los datos fueron cargados correctamente!',
+            showConfirmButton: false,
+            timer: 1500
+          })
           if(this.tipoUrl === 'packages')
           {
             this.almacenar.ngOnInit();
@@ -59,11 +66,11 @@ export class ExcelFileUploadComponent{
           } else if(this.tipoUrl === 'locations')
           {
             this.location.ngOnInit();
-          }    
-          console.log(respOk);           
+          }                    
         },
         respError => {
-          this.errorMessage = respError;
+          Swal.fire( 'Error', respError, 'error' );   
+                 
           this.hayError = true;
         })
     } else {

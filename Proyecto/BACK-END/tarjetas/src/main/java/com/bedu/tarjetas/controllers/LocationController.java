@@ -19,10 +19,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/auth/locations")
+@RequestMapping("/api/v1/locations")
 public class LocationController {
 
     ILocationService iLocationService;

@@ -46,17 +46,17 @@ const routes: Routes = [
     {
         path: 'deliveryPackages',
         component: DistribuirComponent,
-        canActivate: [AuthGuard]             
+        canActivate: [ ValidarTokenGuard ]            
     },
     {
         path: 'storageRequest/:idRequest',
         component: VerPaquetesComponent,
-        canActivate: [AuthGuard]   
+        canActivate: [ ValidarTokenGuard ]    
     },
     {
         path: 'deliveryRequest/:idRequest',
         component: EnviarComponent,
-        canActivate: [AuthGuard] 
+        canActivate: [ ValidarTokenGuard ]    
     },
     {
         path: '404',

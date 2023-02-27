@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Solicitud, Package } from '../interfaces/package-interface';
 import { catchError } from 'rxjs/operators';
 import { throwError as observableThrowError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class PackageService {
   date: Date = new Date();  
   private solicitud!: Solicitud;
  
-  private urlBase: string = 'http://localhost:8080/api/v1';
+  private baserUrl: string = environment.baseUrl;
   
   constructor( private httpClient: HttpClient ) {
    
@@ -22,12 +23,12 @@ export class PackageService {
 
   listRequests( typeRequest: string ): Observable<Solicitud[]>{
     
-    const url = `${this.urlBase}/request/${ typeRequest }`;
+    const url = `${this.baserUrl}/request/${ typeRequest }`;
     return this.httpClient.get<Solicitud[]>( url );
   }
 
   getListPackagesByIdRequest(idRequest: number): Observable<Package[]> {
-    const url = `${ this.urlBase}/packages/${ idRequest }`;
+    const url = `${ this.baserUrl}/packages/${ idRequest }`;
     return this.httpClient.get<Package[]>( url );
   }
 
@@ -42,7 +43,7 @@ export class PackageService {
       filePath: null,
       status: "SUBMITED"
     }
-    const url = `${ this.urlBase}/deliveries?idRequest=${ this.solicitud.idRequest }`;
+    const url = `${ this.baserUrl}/deliveries?idRequest=${ this.solicitud.idRequest }`;
     console.log("url:" + url);
     return this.httpClient
                .put<Solicitud>(url, this.solicitud)

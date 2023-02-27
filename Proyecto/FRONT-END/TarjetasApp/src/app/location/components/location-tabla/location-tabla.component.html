@@ -1,9 +1,9 @@
-<div class="card border-secondary mb-3">    
+<div class="card border-secondary mb-3">
     <div class="card-header"><h5 class="card-title">Ubicaciones Disponibles.</h5></div>
     <div class="card-body text-secondary">
       <div class="my-2 text-left">
         <!-- <button class="btn btn-rounded btn-secondary" type="button">
-          Almacenar Paquetes 
+          Almacenar Paquetes
         </button> -->
       </div>
       <table class="table table-bordered table-striped table-hover">
@@ -13,40 +13,38 @@
             <th>Ubicación</th>
             <th>Capacidad</th>
             <th>Espacio Disponible</th>
-            <th>Espacio Ocupado</th>
-            <!-- <th>Fecha de Almacenamiento</th>
-            <th>Acción</th>
-            <th>Estatus</th>           -->
+            <th>Espacio Ocupado</th>            
+            <th class="text-center">Acción</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let location of locations; let i = index">
             <td>{{ i + 1 }}</td>
-            
+
             <td *ngIf="location.spaceUsed == 500" class="p-2 mb-2 bg-danger text-white">
                 {{ location.nameLocation }}
-            </td>             
+            </td>
             <td *ngIf="location.spaceUsed == 0" class="p-2 mb-2 bg-success text-white">
                 {{ location.nameLocation }}
-            </td>  
+            </td>
             <td *ngIf="location.spaceUsed > 0 && location.spaceUsed < 500" class="p-2 mb-2 bg-warning text-white">
                 {{ location.nameLocation }}
-            </td>          
+            </td>
 
             <td>{{ location.capacity }}</td>
             <td>{{ location.freeSpace }}</td>
             <td>{{ location.spaceUsed }}</td>
-            
-            <td>
+
+            <td class="text-center">
                 <!-- <button type="button" name="ver" class="btn btn-primary btn-sm">ver</button> -->
                 <a [routerLink]="['/createLocations', location.idLocation]">Eliminar</a>
             </td>
-            
+
           </tr>
         </tbody>
       </table>
-  
+
     </div>
   </div>
-  
+
 
