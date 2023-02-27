@@ -1,0 +1,12 @@
+<h2>Almacenamiento</h2>
+<app-excel-file-upload
+    tipoUrl = "packages">
+</app-excel-file-upload>
+<hr>
+
+<div *ngIf="solicitudes.length > 0" class="row">
+    <div class="col">
+        <app-package-tabla [requests]="solicitudes"></app-package-tabla>
+    </div>    
+</div>
+ 
