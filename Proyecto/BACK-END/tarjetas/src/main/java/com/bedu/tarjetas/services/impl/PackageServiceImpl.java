@@ -3,6 +3,7 @@ package com.bedu.tarjetas.services.impl;
 import com.bedu.tarjetas.entities.Location;
 import com.bedu.tarjetas.entities.Package;
 import com.bedu.tarjetas.entities.Request;
+import com.bedu.tarjetas.entities.ResultDTO;
 import com.bedu.tarjetas.helper.ExcelHelper;
 import com.bedu.tarjetas.helper.Status;
 import com.bedu.tarjetas.repositories.ILocationRepository;
@@ -20,7 +21,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class PackageServiceImpl implements IPackageService {
@@ -60,7 +60,8 @@ public class PackageServiceImpl implements IPackageService {
     }
     @Transactional
     @Override
-    public void createPackages(MultipartFile file) {
+    public Map<String, String> createPackages(MultipartFile file) {
+        Map<String, String> message = new HashMap<>();
         try
         {
             Request request = new Request();
@@ -71,7 +72,40 @@ public class PackageServiceImpl implements IPackageService {
             Request request1 = iRequestRepository.save(request);
 
             List<Package> packageList = ExcelHelper.excelToStorage(file.getInputStream());
-            packageList.forEach(
+
+            for(int i = 0; i < packageList.size(); i++){
+                Optional<Location> optionalLocation = iLocationRepository.getLocation(packageList.get(i).getNumberCards());
+                if(optionalLocation.isPresent())
+                {
+                    packageList.get(i).setRequest(request1);
+                    packageList.get(i).setLocation(optionalLocation.get());
+                    packageList.get(i).setStatus(Status.SITUATED);
+                    Package aPackage = iPackageRepository.save(packageList.get(i));
+                    int status = 0;
+                    if(aPackage != null){
+                        status = iLocationRepository.updateSpace(packageList.get(i).getNumberCards(), optionalLocation.get().getIdLocation());
+                    }
+                    else{
+                        status = -1;
+                        logger.error("No se pudo crear el paquete!");
+                        message.put("message", " No se pudo crear el paquete "+ packageList.get(i).getNamePackage() + ", favor de verificar.");
+                        iRequestRepository.requestFail(request1.getIdRequest(), Status.FAIL);
+                        return message;
+                    }
+                    if( status > 0 )
+                        message.put("ok", "ok");
+                    logger.info("The Package was created correctly!");
+                }
+                else
+                {
+                    logger.error("Location doesn't exist!");
+                    message.put("message", "La Ubicación NO tiene esapacio disponible ó no existe en la Base de Datos, favor de verificar.");
+                    iRequestRepository.requestFail(request1.getIdRequest(), Status.FAIL);
+                    return message;
+                }
+            }
+
+           /* packageList.forEach(
                     (packageUnit) -> {
                         Optional<Location> optionalLocation = iLocationRepository.getLocation(packageUnit.getNumberCards());
                         if(optionalLocation.isPresent())
@@ -85,15 +119,16 @@ public class PackageServiceImpl implements IPackageService {
                         }
                         else{
                             logger.error("Location doesn't exist!");
+                            message.put("message", "La Ubicación NO tiene esapacio disponible ó no existe en la Base de Datos, favor de verificar.");
                         }
 
-                    });
+                    });*/
         }
         catch (IOException e)
         {
             throw new RuntimeException("fail to store excel data: " + e.getMessage());
         }
-
+        return message;
     }
 
     @Transactional
@@ -143,8 +178,10 @@ public class PackageServiceImpl implements IPackageService {
     }
 
     @Override
-    public List<Package> getPackagesByIdRequest(long idRequest) {
-        return iPackageRepository.getPackagesByIdRequest( idRequest );
+    public List<ResultDTO> getPackagesByIdRequest(long idRequest) {
+        List<ResultDTO> packageList = iPackageRepository.getPackagesByIdRequest( idRequest );
+        packageList.forEach(System.out::println);
+        return packageList;
     }
 
 

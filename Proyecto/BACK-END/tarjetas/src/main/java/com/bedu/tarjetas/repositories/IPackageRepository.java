@@ -2,6 +2,7 @@ package com.bedu.tarjetas.repositories;
 
 import com.bedu.tarjetas.entities.Package;
 import com.bedu.tarjetas.entities.Request;
+import com.bedu.tarjetas.entities.ResultDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -39,14 +40,28 @@ public interface IPackageRepository extends JpaRepository<Package, Long> {
             "WHERE id_package = :idPackage", nativeQuery = true)
     int releasePackage(long idPackage, String status);
 
-    @Query(value = "SELECT * " +
+   /* @Query(value = "SELECT * " +
             "FROM " +
             "   packages, locations " +
             "WHERE " +
             "   packages.location_id_location = locations.id_location " +
             "AND " +
             "   request_id_request = :idRequest", nativeQuery = true)
-    List<Package> getPackagesByIdRequest(long idRequest);
+    List<Package> getPackagesByIdRequest(long idRequest);*/
+
+
+    @Query(value = "select p.name_package, p.name_product, p.number_cards, l.name_location, b.name_branch " +
+            "from " +
+            "packages p " +
+            "    inner join " +
+            "locations l on p.location_id_location = l.id_location " +
+            "inner join " +
+            "deliveries d on p.id_package = d.a_package_id_package " +
+            "    inner join " +
+            "branches b on d.branch_id_branch = b.id_branch " +
+            "where " +
+            "p.request_id_request = :idRequest", )
+    List<ResultDTO> getPackagesByIdRequest(long idRequest);
 
 
 //

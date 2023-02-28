@@ -43,8 +43,7 @@ export class PackageService {
       filePath: null,
       status: "SUBMITED"
     }
-    const url = `${ this.baserUrl}/deliveries?idRequest=${ this.solicitud.idRequest }`;
-    console.log("url:" + url);
+    const url = `${ this.baserUrl}/deliveries?idRequest=${ this.solicitud.idRequest }`;    
     return this.httpClient
                .put<Solicitud>(url, this.solicitud)
                .pipe(

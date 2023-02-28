@@ -1,21 +1,26 @@
-<div class="my-2 text-center" (click)="enviar()">
-    <button class="btn btn-rounded btn-secondary" type="button">
-        Enviar
-    </button>
-</div>
-<div *ngIf="hayError"
+
+<!-- <div *ngIf="hayError"
      class="alert alert-danger">
      {{errorMessage}}
-</div>
+</div> -->
 <div class="card border-secondary mb-3">
     <div class="card-header"><h5 class="card-title">Paquetes con Sucursales destino.</h5></div>
     <div class="card-body text-secondary">
-      <div class="my-2">
-        <button class="btn btn-rounded btn-secondary" (click)="print()" type="button">
-          Imprimir
-        </button>        
-      </div>
 
+      <div class="my-2">
+        <div class="row">
+          <div class="col-sm-10">
+            <button class="btn btn-rounded btn-secondary" (click)="print()" type="button">
+              Imprimir
+            </button>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-rounded btn-success" (click)="enviar()" type="button">
+              Enviar Paquetes
+            </button>  
+          </div>          
+        </div>
+      </div>
 
       <table class="table table-bordered table-striped table-hover">
         <thead>

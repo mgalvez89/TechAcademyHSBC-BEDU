@@ -6,7 +6,7 @@ export interface Package {
     status:      string;
     location:    aLocation;
     request:     Solicitud;
-    branch:      Branch;
+    
 }
 
 export interface aLocation {

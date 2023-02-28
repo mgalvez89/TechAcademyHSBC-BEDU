@@ -1,6 +1,7 @@
 package com.bedu.tarjetas.services;
 
 import com.bedu.tarjetas.entities.Package;
+import com.bedu.tarjetas.entities.ResultDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface IPackageService {
 
     Package create(Package dataPackage);
 
-    void createPackages(MultipartFile file);
+    Map<String, String> createPackages(MultipartFile file);
 
     Map<String, String> changeLocation(long idPackage, long idNewLocation);
 
@@ -19,5 +20,5 @@ public interface IPackageService {
     void deletePackage(long idPackage);
 
 
-    List<Package> getPackagesByIdRequest(long idRequest);
+    List<ResultDTO> getPackagesByIdRequest(long idRequest);
 }

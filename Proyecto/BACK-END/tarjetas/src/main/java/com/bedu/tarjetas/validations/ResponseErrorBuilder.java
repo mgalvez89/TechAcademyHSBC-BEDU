@@ -58,6 +58,39 @@ public class ResponseErrorBuilder {
         return this;
     }
 
+    public ResponseErrorBuilder exception(java.lang.IllegalArgumentException ex){
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        this.status = status.value();
+        this.errors = new HashMap<>();
+        String extramessage = "El token para validación NO puede ser null o empty, favor de verificar: ";
+        String message = ex.getMessage();
+        errors.put("message", extramessage + message);
+
+        return this;
+    }
+
+    public ResponseErrorBuilder exception(java.lang.NullPointerException ex){
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        this.status = status.value();
+        this.errors = new HashMap<>();
+        String extramessage = " El archivo excel que intentó cargar NO corresponde al tipo de operación actual, favor de verificar: ";
+        String message = ex.getMessage();
+        errors.put("message", extramessage + message);
+
+        return this;
+    }
+
+    public ResponseErrorBuilder exception( io.jsonwebtoken.ExpiredJwtException ex){
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        this.status = status.value();
+        this.errors = new HashMap<>();
+        String extramessage = " La sesión ha caducado, vuelve a iniciar sesión para continuar: ";
+        String message = ex.getMessage();
+        errors.put("message", extramessage + message);
+
+        return this;
+    }
+
     public ResponseErrorBuilder exception(java.lang.NumberFormatException ex)
     {
         HttpStatus status = HttpStatus.BAD_REQUEST;

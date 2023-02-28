@@ -2,6 +2,7 @@ package com.bedu.tarjetas.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -18,12 +19,18 @@ public class Request {
     private String typeRequest;
 
     @Column(name = "storage_date")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date storageDate;
 
     @Column(name = "delivery_date")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deliveryDate;
 
     @Column(name = "request_date")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date requestDate;
 
     @Column(name = "file_name")

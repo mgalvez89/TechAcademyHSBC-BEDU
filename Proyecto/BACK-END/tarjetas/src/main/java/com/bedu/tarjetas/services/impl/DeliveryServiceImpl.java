@@ -113,16 +113,15 @@ public class DeliveryServiceImpl implements IDeliveryService {
 
                     if(byNamePackage.isPresent())
                     {
-                        if(byNamePackage.get().getStatus().equals("SITUATED"))
+                        if(byNamePackage.get().getStatus().equals(Status.SITUATED))
                         {
-                            System.out.println("Si esta el paquete: " + byNamePackage.get().getNamePackage() + "  id Paquete: " + byNamePackage.get().getIdPackage());
+
                             int result = iPackageRepository.updateStatusPackage(byNamePackage.get().getIdPackage(), request1.getIdRequest(), Status.PENDING);
-                            System.out.println("resultPackage: " + result);
+
                             Optional<Branch> branch = iBranchRepository.findOneByNumberBranch(numberBranch);
 
                             if (branch.isPresent())
                             {
-                                System.out.print("Si eta la sucursal: " + branch.get().getNameBranch() + "\n");
                                 Delivery deliveryN = new Delivery();
                                 deliveryN.setBranch(branch.get());
                                 //deliveryN.setNumberBranch(byNumberBranch.get().getNumberBranch());
@@ -182,13 +181,13 @@ public class DeliveryServiceImpl implements IDeliveryService {
             }
         }
         int result = iRequestRepository.realeaseRequest(idRequest, new Date(), Status.SUBMITTED);
-        System.out.println("result: " + result);
+//        System.out.println("result: " + result);
 
         //obtener lista de paquetes por cada solicitud
         Request request = new Request();
         request.setIdRequest(idRequest);
         List<Package> packageList = iPackageRepository.findByRequestAndStatus(request, Status.PENDING);
-        packageList.forEach(System.out::println);
+//        packageList.forEach(System.out::println);
         if(packageList.isEmpty()){
             messages.put("message", "La Solicitud con idRequest: '"+ idRequest + "' no existe en la Base de Datos, favor de verificar. ");
             return messages;
@@ -199,13 +198,13 @@ public class DeliveryServiceImpl implements IDeliveryService {
         packageList.forEach(
                 (aPackage) -> {
                     int resultPackage = iPackageRepository.releasePackage(aPackage.getIdPackage(), Status.SUBMITTED);
-                    System.out.println("resultPackage: " + resultPackage);
+//                    System.out.println("resultPackage: " + resultPackage);
 
                    int resultLocation =  iLocationRepository.updateSpaceAdd(aPackage.getLocation().getIdLocation(), aPackage.getNumberCards());
-                    System.out.println("resultLoaction: " + resultLocation);
+//                    System.out.println("resultLoaction: " + resultLocation);
 
                     int resultDelivery = iDeliveryRepository.releaseDelivery(aPackage.getIdPackage(), Status.SUBMITTED);
-                    System.out.println("resultDelivery: " + resultDelivery);
+//                    System.out.println("resultDelivery: " + resultDelivery);
                 }
         );
         messages.put("ok", "ok");

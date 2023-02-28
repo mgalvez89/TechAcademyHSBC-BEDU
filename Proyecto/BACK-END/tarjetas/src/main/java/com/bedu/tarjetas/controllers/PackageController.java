@@ -1,8 +1,8 @@
 package com.bedu.tarjetas.controllers;
 
 import com.bedu.tarjetas.entities.Package;
+import com.bedu.tarjetas.entities.ResultDTO;
 import com.bedu.tarjetas.helper.ExcelHelper;
-import com.bedu.tarjetas.services.impl.PackageServiceImpl;
 import com.bedu.tarjetas.validations.ResponseMessage;
 import com.bedu.tarjetas.services.IPackageService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -44,8 +44,15 @@ public class PackageController {
 
         if (ExcelHelper.hasExcelFormat(file))
         {
-            iPackageService.createPackages(file);
-            return ResponseEntity.created(URI.create("1")).build();
+            Map<String,String> messages = iPackageService.createPackages(file);
+            if(messages.containsKey("ok"))
+            {
+                return ResponseEntity.created(URI.create("1")).build();
+            }
+            else
+            {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(messages, HttpStatus.BAD_REQUEST.value(), request.getRequestURI()));
+            }
         }
         message = "El tipo de archivo que se intentó cargar es: '"+file.getContentType() + "' y se esperaba un archivo de tipo excel.";
         errors.put("message", message);
@@ -68,7 +75,7 @@ public class PackageController {
     }
 
     @GetMapping("/{idRequest}")
-    public List<Package> packagesByIdRequest(@PathVariable long idRequest){
+    public List<ResultDTO> packagesByIdRequest(@PathVariable long idRequest){
         return iPackageService.getPackagesByIdRequest( idRequest );
     }
 

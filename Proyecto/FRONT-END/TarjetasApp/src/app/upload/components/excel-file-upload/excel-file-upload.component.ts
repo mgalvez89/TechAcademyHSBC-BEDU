@@ -55,8 +55,9 @@ export class ExcelFileUploadComponent{
             icon: 'success',
             title: '¡Los datos fueron cargados correctamente!',
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
           })
+          
           if(this.tipoUrl === 'packages')
           {
             this.almacenar.ngOnInit();
@@ -68,8 +69,19 @@ export class ExcelFileUploadComponent{
             this.location.ngOnInit();
           }                    
         },
-        respError => {
-          Swal.fire( 'Error', respError, 'error' );   
+        respError => {          
+          Swal.fire( 'Error', respError, 'error' );  
+
+          if(this.tipoUrl === 'packages')
+          {
+            this.almacenar.ngOnInit();
+          } else if( this.tipoUrl === 'deliveries' )
+          {
+            this.distribuir.ngOnInit();
+          } else if(this.tipoUrl === 'locations')
+          {
+            this.location.ngOnInit();
+          }   
                  
           this.hayError = true;
         })

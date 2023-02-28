@@ -36,6 +36,9 @@ public class Package {
     @Column(name = "status")
     private String status;
 
+    @Transient
+    private String branch;
+
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne
     private Location location;

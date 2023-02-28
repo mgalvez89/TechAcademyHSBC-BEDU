@@ -1,4 +1,4 @@
-<div class="card border-secondary mb-3">    
+<div class="my-3 card border-secondary">    
     <div class="card-header"><h5 class="card-title">Archivos Excel Cargados</h5></div>
     <div class="card-body text-secondary">
       <div class="my-2 text-left">
@@ -12,8 +12,8 @@
             <th>No.</th>
             <th>Nombre del Archivo</th>
             <th>Fecha de Almacenamiento</th>
-            <th class="d-flex justify-content-center">Acción</th>
-            <th>Estatus</th>          
+            <th class="text-center">Acción</th>
+            <th class="text-center">Estatus</th>          
           </tr>
         </thead>
         <tbody>
@@ -21,14 +21,14 @@
             <td>{{ i + 1 }}</td>
             <td>{{ request.fileName }}</td>
             <td>{{ request.storageDate }}</td>
-            <td class="d-flex justify-content-center">
+            <td class="text-center">
                 <!-- <button type="button" name="ver" class="btn btn-primary btn-sm">ver</button> -->
                 <a [routerLink]="['/storageRequest', request.idRequest]">Ver</a>
             </td>
-            <td *ngIf="request.status == 'ALMACENADO'" class="p-2 mb-2 bg-success text-white">
+            <td *ngIf="request.status == 'ALMACENADO'" class="p-2 mb-2 bg-success text-white text-center">
               {{ request.status }}
             </td>   
-            <td *ngIf="request.status == 'FALLIDO'" class="p-2 mb-2 bg-danger text-white">
+            <td *ngIf="request.status == 'FALLIDO'" class="p-2 mb-2 bg-danger text-white text-center">
               {{ request.status }}
             </td>   
 

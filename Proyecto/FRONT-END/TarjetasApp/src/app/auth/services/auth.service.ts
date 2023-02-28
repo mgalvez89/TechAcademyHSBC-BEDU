@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthResponse, Usuario } from '../interfaces/auth.interface';
 import { Observable, of, catchError } from 'rxjs';
-import { map, tap } from 'rxjs/operators'
+import { map, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class AuthService {
 
   private baserUrl: string = environment.baseUrl;
   private _usuario!: Usuario | null | undefined;
+  
   
   constructor( private http: HttpClient ){
 
@@ -25,7 +26,7 @@ export class AuthService {
       .pipe( 
         tap( resp => {          
           if ( resp.ok ) {
-            localStorage.setItem( 'token', resp.token! );
+            localStorage.setItem( 'token', resp.token! );            
             this._usuario = {
               idUser:   resp.idUser!,
               userName: resp.userName!,
@@ -45,7 +46,7 @@ export class AuthService {
   }
 
   validarToken(): Observable<boolean> {
-    const url = `${ this.baserUrl }/auth/validate`;
+    const url = `${ this.baserUrl }/auth/validate`;             
     const headers = new HttpHeaders()
       .set( 'x-token', localStorage.getItem('token') || '' );
 
@@ -61,8 +62,8 @@ export class AuthService {
             }
 
           return resp.ok;
-        }),
-        catchError( error => of(false) )
+        }),        
+        catchError( error => of(false))        
       );
   }
 
@@ -70,5 +71,6 @@ export class AuthService {
     this._usuario = null;
     localStorage.clear();
   }
+
 
 }

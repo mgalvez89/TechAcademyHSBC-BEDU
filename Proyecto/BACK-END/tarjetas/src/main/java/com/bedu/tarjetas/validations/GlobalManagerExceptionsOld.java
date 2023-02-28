@@ -30,14 +30,37 @@ public class GlobalManagerExceptionsOld {
               .entity();
     }
 
-    @ExceptionHandler(java.lang.IllegalStateException.class)
-    public ResponseEntity<?> handleIllegarState(java.lang.IllegalStateException ex, WebRequest request){
+    @ExceptionHandler(java.lang.IllegalArgumentException.class)
+    public ResponseEntity<?> handleIllegalArgument(java.lang.IllegalArgumentException ex, WebRequest request){
       return ResponseError.builder()
               .exception(ex)
               .path(request.getDescription(false).substring(4))
               .entity();
     }
 
+    @ExceptionHandler(java.lang.IllegalStateException.class)
+    public ResponseEntity<?> handleIllegalState(java.lang.IllegalStateException ex, WebRequest request){
+      return ResponseError.builder()
+              .exception(ex)
+              .path(request.getDescription(false).substring(4))
+              .entity();
+    }
+
+    @ExceptionHandler(java.lang.NullPointerException.class)
+    public ResponseEntity<?> handleNullPointer(java.lang.NullPointerException ex, WebRequest request){
+      return ResponseError.builder()
+              .exception(ex)
+              .path(request.getDescription(false).substring(4))
+              .entity();
+    }
+
+    @ExceptionHandler(io.jsonwebtoken.ExpiredJwtException.class)
+    public ResponseEntity<?> handleExpiredJwt(io.jsonwebtoken.ExpiredJwtException ex, WebRequest request){
+      return ResponseError.builder()
+              .exception(ex)
+              .path(request.getDescription(false).substring(4))
+              .entity();
+    }
     @ExceptionHandler(java.lang.NumberFormatException.class)
     public ResponseEntity<?> handleNumberFormat(java.lang.NumberFormatException ex, WebRequest request){
       return ResponseError.builder()
