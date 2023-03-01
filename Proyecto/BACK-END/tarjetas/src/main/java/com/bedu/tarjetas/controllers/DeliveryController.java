@@ -31,13 +31,13 @@ public class DeliveryController {
         this.iDeliveryService = iDeliveryService;
     }
 
-    @PostMapping("/excel/upload")
-    public ResponseEntity<?> uploadFile(@Valid @RequestParam("file") MultipartFile file, HttpServletRequest request){
+    @PostMapping("/excel/upload/{user}")
+    public ResponseEntity<?> uploadFile(@Valid @RequestParam("file") MultipartFile file, HttpServletRequest request, @PathVariable String user){
         Map<String, String> errors = new HashMap<>();
         String message = "";
         if (ExcelHelper.hasExcelFormat(file))
         {
-            Map<String,String> messages = iDeliveryService.createDeliveries(file);
+            Map<String,String> messages = iDeliveryService.createDeliveries(file, user);
             if(messages.containsKey("ok"))
             {
                 return ResponseEntity.created(URI.create("1")).build();

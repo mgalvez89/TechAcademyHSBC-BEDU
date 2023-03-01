@@ -11,6 +11,7 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { HomeComponent } from './package/pages/home/home.component';
 import { LocationAccesoGuard } from './auth/guards/location-acceso.guard';
 import { ValidarTokenGuard } from './auth/guards/validar-token.guard';
+import { LocationTablaComponent } from './location/components/location-tabla/location-tabla.component';
 
 
 
@@ -37,7 +38,7 @@ const routes: Routes = [
         component: CrearComponent,
         canActivate: [ ValidarTokenGuard ]      
 
-    },
+    },    
     {
         path: 'storagePackages',
         component: AlmacenarComponent,

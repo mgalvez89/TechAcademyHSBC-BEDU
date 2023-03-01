@@ -42,11 +42,12 @@ public class DeliveryServiceImpl implements IDeliveryService {
 
     @Transactional
     @Override
-    public Map<String, String> createDeliveries(MultipartFile file) {
+    public Map<String, String> createDeliveries(MultipartFile file, String user) {
         Map<String, String> messages = new HashMap<>();
         try
         {
             Request request = new Request();
+            request.setNameUser(user);
             request.setTypeRequest("DELIVERY");
             request.setRequestDate(new Date());
             request.setFileName(file.getOriginalFilename());
@@ -96,7 +97,7 @@ public class DeliveryServiceImpl implements IDeliveryService {
                 }
                 else
                 {
-                    messages.put("message", "La Sucursal: '" + numberBranch + "' NO existe en la Base de Datos, favor de verificar");
+                    messages.put("message", " La Sucursal: '" + numberBranch + "' NO existe en la Base de Datos, favor de verificar");
                     iRequestRepository.requestFail(request1.getIdRequest(), Status.FAIL);
                     return messages;
                 }
@@ -134,7 +135,7 @@ public class DeliveryServiceImpl implements IDeliveryService {
                                     messages.put("ok", "ok");
                             }
                             else{
-                                messages.put("message", "La Sucursal: '" + numberBranch + "' NO existe en la Base de Datos, favor de verificar");
+                                messages.put("message", " La Sucursal: '" + numberBranch + "' NO existe en la Base de Datos, favor de verificar");
                                 iRequestRepository.requestFail(request1.getIdRequest(), Status.FAIL);
                                 return messages;
                             }

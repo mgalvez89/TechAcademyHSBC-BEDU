@@ -42,4 +42,7 @@ public class Request {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "nameUser")
+    private String nameUser;
+
 }

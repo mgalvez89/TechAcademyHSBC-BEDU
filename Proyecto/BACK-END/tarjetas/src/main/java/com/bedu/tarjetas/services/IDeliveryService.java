@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface IDeliveryService {
 
-    Map<String, String> createDeliveries(MultipartFile file);
+    Map<String, String> createDeliveries(MultipartFile file, String user);
 
     Map<String, String> updateRequest(long idRequest);
 

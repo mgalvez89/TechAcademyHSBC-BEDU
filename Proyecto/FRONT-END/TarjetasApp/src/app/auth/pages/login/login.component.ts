@@ -32,7 +32,7 @@ export class LoginComponent {
           icon: 'success',
           title: '¡Bienvenid@ ' + user.userName + '!',
           showConfirmButton: false,
-          timer: 2000
+          timer: 1500
         })        
         if ( user.ok === true ){
           this.router.navigateByUrl('/home');

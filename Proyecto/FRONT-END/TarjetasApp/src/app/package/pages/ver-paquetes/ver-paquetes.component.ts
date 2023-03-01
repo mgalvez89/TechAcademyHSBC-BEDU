@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
-import { Package } from '../../interfaces/package-interface';
+import { Package, uPackage } from '../../interfaces/package-interface';
 import { PackageService } from '../../services/package.service';
 
 @Component({

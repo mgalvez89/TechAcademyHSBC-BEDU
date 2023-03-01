@@ -14,6 +14,7 @@
             <th>Nombre del Archivo</th>
             <th>Fecha de Solicitud</th>
             <th>Fecha de Liberación</th>
+            <th *ngIf="usuario.rol == 'ADMIN'" class="text-center">Usuario</th>            
             <th class="text-center">Acción</th>
             <th class="text-center">Estatus</th>          
           </tr>
@@ -24,6 +25,7 @@
             <td>{{ request.fileName }}</td>
             <td>{{ request.requestDate }}</td>
             <td>{{ request.deliveryDate }}</td>
+            <td *ngIf="usuario.rol == 'ADMIN'" class="text-center">{{ request.nameUser }}</td>            
             <td class="text-center">
                 <!-- <button type="button" name="ver" class="btn btn-primary btn-sm">ver</button> -->
                 <a [routerLink]="['/deliveryRequest', request.idRequest]">Ver</a>

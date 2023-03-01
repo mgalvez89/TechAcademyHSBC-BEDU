@@ -1,8 +1,8 @@
 package com.bedu.tarjetas.controllers;
 
 import com.bedu.tarjetas.entities.Package;
-import com.bedu.tarjetas.entities.ResultDTO;
 import com.bedu.tarjetas.helper.ExcelHelper;
+import com.bedu.tarjetas.repositories.IResultDTO;
 import com.bedu.tarjetas.validations.ResponseMessage;
 import com.bedu.tarjetas.services.IPackageService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -37,14 +37,14 @@ public class PackageController {
         return ResponseEntity.created(URI.create("1")).build();
     }
 
-    @PostMapping("/excel/upload")
-    public ResponseEntity<?> uploadFile(@Valid @RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    @PostMapping("/excel/upload/{user}")
+    public ResponseEntity<?> uploadFile(@Valid @RequestParam("file") MultipartFile file, HttpServletRequest request, @PathVariable String user) {
         Map<String, String> errors = new HashMap<>();
         String message = "";
 
         if (ExcelHelper.hasExcelFormat(file))
         {
-            Map<String,String> messages = iPackageService.createPackages(file);
+            Map<String,String> messages = iPackageService.createPackages(file, user);
             if(messages.containsKey("ok"))
             {
                 return ResponseEntity.created(URI.create("1")).build();
@@ -74,9 +74,14 @@ public class PackageController {
         return iPackageService.getAllPackages();
     }
 
-    @GetMapping("/{idRequest}")
-    public List<ResultDTO> packagesByIdRequest(@PathVariable long idRequest){
-        return iPackageService.getPackagesByIdRequest( idRequest );
+    @GetMapping("/location/{idRequest}")
+    public List<Package> packagesLocationByIdRequest(@PathVariable long idRequest){
+        return iPackageService.getPackagesLocationByIdRequest( idRequest );
+    }
+
+    @GetMapping("/branch/{idRequest}")
+    public List<IResultDTO> packagesBranchByIdRequest(@PathVariable long idRequest){
+        return iPackageService.getPackagesBranchByIdRequest( idRequest );
     }
 
 

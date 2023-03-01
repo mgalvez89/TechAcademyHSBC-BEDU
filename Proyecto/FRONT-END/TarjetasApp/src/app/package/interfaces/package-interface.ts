@@ -5,9 +5,16 @@ export interface Package {
     nameProduct: string;
     status:      string;
     location:    aLocation;
-    request:     Solicitud;
-    
+    request:     Solicitud;    
 }
+export interface uPackage {
+    namePackage:  string;
+    numberCards:  string;
+    nameLocation: string;
+    nameBranch:   string;
+    nameProduct:  string;
+}
+
 
 export interface aLocation {
     idLocation:   number;
@@ -27,6 +34,7 @@ export interface Solicitud {
     fileName:     string;
     filePath:     null;
     status:       string;
+    nameUser?:     string; 
 }
 
 export interface Branch {

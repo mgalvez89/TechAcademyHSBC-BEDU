@@ -4,6 +4,7 @@ import com.bedu.tarjetas.entities.Location;
 import com.bedu.tarjetas.helper.ExcelHelper;
 import com.bedu.tarjetas.repositories.ILocationRepository;
 import com.bedu.tarjetas.services.ILocationService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,6 @@ public class LoactionServiceImpl implements ILocationService {
 
     @Override
     public void createLocations(MultipartFile file) {
-
         try{
             List<Location> locationList = ExcelHelper.excelToLocations(file.getInputStream());
             locationList.forEach(
@@ -110,6 +110,11 @@ public class LoactionServiceImpl implements ILocationService {
             status = 2;
         }
         return status;
+    }
+
+    @Override
+    public Optional<Location> getNameLocation(@Valid int idLocation) {
+        return iLocationRepository.findByIdLocation(idLocation);
     }
 
 }

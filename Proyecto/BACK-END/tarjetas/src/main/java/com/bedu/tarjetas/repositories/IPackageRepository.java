@@ -2,7 +2,6 @@ package com.bedu.tarjetas.repositories;
 
 import com.bedu.tarjetas.entities.Package;
 import com.bedu.tarjetas.entities.Request;
-import com.bedu.tarjetas.entities.ResultDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -40,43 +39,28 @@ public interface IPackageRepository extends JpaRepository<Package, Long> {
             "WHERE id_package = :idPackage", nativeQuery = true)
     int releasePackage(long idPackage, String status);
 
-   /* @Query(value = "SELECT * " +
+    @Query(value = "SELECT * " +
             "FROM " +
             "   packages, locations " +
             "WHERE " +
             "   packages.location_id_location = locations.id_location " +
             "AND " +
             "   request_id_request = :idRequest", nativeQuery = true)
-    List<Package> getPackagesByIdRequest(long idRequest);*/
+    List<Package> getPackagesByIdRequestAndLocation(long idRequest);
 
+    @Query(value = "SELECT  p.name_package as namePackage, " +
+                "   p.name_product as nameProduct, p.number_cards as numberCards, " +
+                "   l.name_location as nameLocation, b.name_branch as nameBranch  " +
+                "FROM " +
+                "   packages p " +
+                "INNER JOIN " +
+                "   locations l on p.location_id_location = l.id_location " +
+                "INNER JOIN " +
+                "   deliveries d on p.id_package = d.a_package_id_package " +
+                "INNER JOIN " +
+                "   branches b on d.branch_id_branch = b.id_branch " +
+                "WHERE " +
+                "   p.request_id_request = :idRequest", nativeQuery = true )
+    List<IResultDTO> getPackagesByIdRequestAndBranch(long idRequest);
 
-    @Query(value = "select p.name_package, p.name_product, p.number_cards, l.name_location, b.name_branch " +
-            "from " +
-            "packages p " +
-            "    inner join " +
-            "locations l on p.location_id_location = l.id_location " +
-            "inner join " +
-            "deliveries d on p.id_package = d.a_package_id_package " +
-            "    inner join " +
-            "branches b on d.branch_id_branch = b.id_branch " +
-            "where " +
-            "p.request_id_request = :idRequest", )
-    List<ResultDTO> getPackagesByIdRequest(long idRequest);
-
-
-//
-//    @Query(value = "select packages.id_package, packages.name_package, packages.name_product, packages.number_cards, packages.status, packages.location_id_location, " +
-//            " packages.request_id_request, packages.branch_id_branch, locations.id_location, locations.capacity, locations.free_space, locations.name_location, " +
-//            " locations.space_used, deliveries.id_delivery, deliveries.a_package_id_package, branches.id_branch, " +
-//            " branches.calle, branches.ciudad, branches.colonia, branches.cp, branches.director, branches.email, branches.estado, branches.horario, branches.id_ruta, branches.municipio, branches.name_branch, " +
-//            " branches.number_branch, branches.regional, branches.telefono, branches.territorial, branches.tipo_sucursal, branches.module_id_module" +
-//            " FROM packages, locations, deliveries, branches " +
-//            "where " +
-//            "packages.location_id_location = locations.id_location " +
-//            "and " +
-//            "packages.id_package = deliveries.a_package_id_package " +
-//            "and " +
-//            "deliveries.branch_id_branch = branches.id_branch " +
-//            "and " +
-//            "request_id_request = :idRequest", nativeQuery = true)
 }

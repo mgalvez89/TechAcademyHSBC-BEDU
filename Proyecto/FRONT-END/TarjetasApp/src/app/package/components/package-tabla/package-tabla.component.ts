@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Solicitud } from '../../interfaces/package-interface';
 
 
@@ -10,4 +11,10 @@ import { Solicitud } from '../../interfaces/package-interface';
 })
 export class PackageTablaComponent {
   @Input() requests: Solicitud[] = [];
+
+  constructor( private authService: AuthService){}
+  
+  get usuario(){  
+    return this.authService.usuario;
+  }
 }

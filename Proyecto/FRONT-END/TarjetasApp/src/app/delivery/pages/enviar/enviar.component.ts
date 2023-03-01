@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
-import { Package } from 'src/app/package/interfaces/package-interface';
-import { PackageService } from 'src/app/package/services/package.service';
+import { uPackage } from 'src/app/package/interfaces/package-interface';
 import Swal from 'sweetalert2';
+import { DeliveryService } from '../../services/delivery.service';
 
 @Component({
   selector: 'app-enviar',
@@ -15,17 +15,17 @@ export class EnviarComponent {
 
   errorMessage = "";
   hayError: boolean = false;
-  packagesList: Package[] = [];  
+  packagesList: uPackage[] = [];  
 
-  constructor( private activateRoute: ActivatedRoute,
-               private packageService: PackageService,
+  constructor( private activateRoute: ActivatedRoute,               
+               private deliveryService: DeliveryService,
                private router: Router ){
   }
 
   ngOnInit(): void {
     this.activateRoute.params
     .pipe(
-      switchMap( ({ idRequest }) => this.packageService.getListPackagesByIdRequest( idRequest ) )
+      switchMap( ({ idRequest }) => this.deliveryService.getListPackagesBranchByIdRequest( idRequest ) )
     )
     .subscribe( data => this.packagesList = data );
     
@@ -35,7 +35,7 @@ export class EnviarComponent {
     
     this.activateRoute.params
     .pipe(
-      switchMap( ({ idRequest }) => this.packageService.sendPackages( idRequest ) )
+      switchMap( ({ idRequest }) => this.deliveryService.sendPackages( idRequest ) )
     )
     .subscribe( respOk => {      
       Swal.fire({            
@@ -47,7 +47,6 @@ export class EnviarComponent {
       this.router.navigate(['./deliveryPackages']);       
       },
      respError =>{
-      // Swal.fire( 'Error', respError, 'error' );
       Swal.fire({
         icon: 'info',
         title: 'Info',

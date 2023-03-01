@@ -1,4 +1,5 @@
-<div class="container-fluid" style="border:1px solid #cecece;">
+
+<div *ngIf="!(tipoUrl == 'locations' && usuario.rol == 'OPERADOR')" class="container-fluid" style="border:1px solid #cecece;">
     <div class="my-2">
     <div class="row justify-content-md-left">                                                 
         <div class="col-sm-auto"> 
@@ -25,7 +26,6 @@
     </div>  
 </div>                                                                                                              
 </div>  
-
 
 <!-- <div *ngIf="hayError"
      class="alert alert-danger">

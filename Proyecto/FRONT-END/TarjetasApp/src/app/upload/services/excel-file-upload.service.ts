@@ -13,9 +13,14 @@ export class ExcelFileUploadService {
 
    }
 
-   public uploadfile( file: File, typeUrl: string ){
+   public uploadfile( file: File, typeUrl: string, nameUser: string ){
+    let url;
+    if(typeUrl === 'locations'){
+      url = `${ this.baseUrl }/${ typeUrl }/excel/upload`;
+    }else{
+      url = `${ this.baseUrl }/${ typeUrl }/excel/upload/${ nameUser }`;
+    }    
     
-    const url = `${ this.baseUrl }/${ typeUrl }/excel/upload`;
     let formParams = new FormData;
     formParams.append("file", file);
     return this.http

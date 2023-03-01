@@ -3,12 +3,12 @@ package com.bedu.tarjetas.services.impl;
 import com.bedu.tarjetas.entities.Location;
 import com.bedu.tarjetas.entities.Package;
 import com.bedu.tarjetas.entities.Request;
-import com.bedu.tarjetas.entities.ResultDTO;
 import com.bedu.tarjetas.helper.ExcelHelper;
 import com.bedu.tarjetas.helper.Status;
 import com.bedu.tarjetas.repositories.ILocationRepository;
 import com.bedu.tarjetas.repositories.IPackageRepository;
 import com.bedu.tarjetas.repositories.IRequestRepository;
+import com.bedu.tarjetas.repositories.IResultDTO;
 import com.bedu.tarjetas.services.IPackageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,11 +60,12 @@ public class PackageServiceImpl implements IPackageService {
     }
     @Transactional
     @Override
-    public Map<String, String> createPackages(MultipartFile file) {
+    public Map<String, String> createPackages(MultipartFile file, String user) {
         Map<String, String> message = new HashMap<>();
         try
         {
             Request request = new Request();
+            request.setNameUser(user);
             request.setTypeRequest("STORAGE");
             request.setStorageDate(new Date());
             request.setFileName(file.getOriginalFilename());
@@ -99,7 +100,7 @@ public class PackageServiceImpl implements IPackageService {
                 else
                 {
                     logger.error("Location doesn't exist!");
-                    message.put("message", "La Ubicación NO tiene esapacio disponible ó no existe en la Base de Datos, favor de verificar.");
+                    message.put("message", " NO existen ubicaciones disponibles, favor de verificar.");
                     iRequestRepository.requestFail(request1.getIdRequest(), Status.FAIL);
                     return message;
                 }
@@ -177,12 +178,18 @@ public class PackageServiceImpl implements IPackageService {
             logger.error("The Package doesn't exist");
     }
 
+
     @Override
-    public List<ResultDTO> getPackagesByIdRequest(long idRequest) {
-        List<ResultDTO> packageList = iPackageRepository.getPackagesByIdRequest( idRequest );
-        packageList.forEach(System.out::println);
+    public List<Package> getPackagesLocationByIdRequest(long idRequest) {
+        return iPackageRepository.getPackagesByIdRequestAndLocation(idRequest);
+    }
+    @Override
+    public List<IResultDTO> getPackagesBranchByIdRequest(long idRequest) {
+        List<IResultDTO> packageList = iPackageRepository.getPackagesByIdRequestAndBranch( idRequest );
         return packageList;
     }
+
+
 
 
 }

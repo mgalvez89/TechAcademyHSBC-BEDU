@@ -6,6 +6,7 @@ import { CrearComponent } from 'src/app/location/pages/crear/crear.component';
 import { Subject } from 'rxjs';
 import { indicate } from './operators';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class ExcelFileUploadComponent{
   constructor(private excelFileUploadService: ExcelFileUploadService,
               private almacenar: AlmacenarComponent,
               private distribuir: DistribuirComponent,
-              private location: CrearComponent)
+              private location: CrearComponent,
+              private authService: AuthService)
   {
     
   }  
@@ -47,7 +49,7 @@ export class ExcelFileUploadComponent{
 
   upload(){    
     if(this.file){
-      this.excelFileUploadService.uploadfile( this.file, this.tipoUrl )
+      this.excelFileUploadService.uploadfile( this.file, this.tipoUrl, this.authService.usuario.userName! )
       .pipe(indicate(this.loading$))
       .subscribe( 
         respOk => {
@@ -55,7 +57,7 @@ export class ExcelFileUploadComponent{
             icon: 'success',
             title: '¡Los datos fueron cargados correctamente!',
             showConfirmButton: false,
-            timer: 2000
+            timer: 1500
           })
           
           if(this.tipoUrl === 'packages')
@@ -70,7 +72,7 @@ export class ExcelFileUploadComponent{
           }                    
         },
         respError => {          
-          Swal.fire( 'Error', respError, 'error' );  
+          Swal.fire( 'Info', respError, 'info' );  
 
           if(this.tipoUrl === 'packages')
           {
@@ -86,12 +88,14 @@ export class ExcelFileUploadComponent{
           this.hayError = true;
         })
     } else {
-      alert( "Please select a file first" );      
+      Swal.fire( 'Error', '<strong>Por favor, primero seleccione un archivo Excel</strong>', 'error' );  
     }
   }
 
 
-
+  get usuario(){      
+    return this.authService.usuario;
+  }
   
 }
 

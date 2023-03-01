@@ -18,6 +18,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 
 @Slf4j
@@ -102,17 +103,18 @@ public class LocationController {
         String message = "";
 
         if(idLocation <= 0){
-            errors.put("idLocation", "El identificador no puede ser un número negativo o cero, favor de vericar.");
+            errors.put("idLocation", " El identificador no puede ser un número negativo o cero, favor de vericar.");
         }
         else {
+            Optional<Location> location = iLocationService.getNameLocation(idLocation);
             int status = iLocationService.deleteLocation(idLocation);
             if(status == 1){
                 return ResponseEntity.created(URI.create("1")).build();
             } else if (status == 0) {
-                errors.put("message", "Las ubicaciones que contienen paquetes NO se pueden eliminar, favor de verificar ubicacion con id: " + idLocation);
+                errors.put("message", " La Ubicación '" + location.get().getNameLocation() + "' NO se pueden borrar porque contiene tarjetas");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(errors, HttpStatus.BAD_REQUEST.value(), request.getRequestURI()));
             } else if (status == 2) {
-                errors.put("message", "No se elimino la ubicación con id: '"+ idLocation + "' porque NO existe en la base de datos, favor de verificar");
+                errors.put("message", " No se elimino la ubicación con id: '"+ idLocation + "' porque NO existe en la base de datos, favor de verificar");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(errors, HttpStatus.BAD_REQUEST.value(), request.getRequestURI()));
             }
         }
